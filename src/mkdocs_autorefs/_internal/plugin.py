@@ -268,10 +268,10 @@ class AutorefsPlugin(BasePlugin[AutorefsConfig]):
             if file.page and file.page.content:
                 _log.debug("Applying cross-refs in page %s", file.page.file.src_path)
 
-                # YORE: Bump 2: Replace `, fallback=self.get_fallback_anchor` with `` within line.
                 url_mapper = functools.partial(
                     self.get_item_url,
                     from_url=file.page.url,
+                    # YORE: Bump 2: Remove line.
                     fallback=self.get_fallback_anchor,
                 )
                 backlink_recorder = (
