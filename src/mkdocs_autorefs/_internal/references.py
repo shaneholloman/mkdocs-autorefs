@@ -619,10 +619,6 @@ def fix_refs(
     return html, unmapped
 
 
-_html_attrs_parser = _HTMLAttrsParser()
-_html_tag_stripper = _HTMLTagStripper()
-
-
 def _find_url(
     identifiers: Iterable[str],
     url_mapper: Callable[[str], tuple[str, str | None]],
@@ -658,6 +654,10 @@ def _log_enabling_markdown_anchors() -> None:
 @lru_cache
 def _log_enabling_backlinks() -> None:
     _log.debug("Enabling backlinks feature")
+
+
+_html_attrs_parser = _HTMLAttrsParser()
+_html_tag_stripper = _HTMLTagStripper()
 
 
 # YORE: Bump 2: Remove block.
