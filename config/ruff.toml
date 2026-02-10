@@ -18,12 +18,14 @@ ignore = [
     "EM101",  # String literal when raising exception
     "EM102",  # f-string when raising exception
     "ERA001",  # Commented out code
+    "FIX",  # TODO, FIXME, etc.
     "G004",  # Logging statement uses f-string
     "PLR0911",  # Too many return statements
     "PLR0912",  # Too many branches
     "PLR0913",  # Too many arguments to function call
     "PLR0915",  # Too many statements
     "SLF001", # Private member accessed
+    "TD",  # Missing author/issue in TODO, FIXME, etc.
     "TRY003",  # Avoid specifying long messages outside the exception class
 ]
 
