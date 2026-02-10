@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 <!-- insertion marker -->
+## [1.4.4](https://github.com/mkdocstrings/autorefs/releases/tag/1.4.4) - 2026-02-10
+
+<small>[Compare with 1.4.3](https://github.com/mkdocstrings/autorefs/compare/1.4.3...1.4.4)</small>
+
+### Code Refactoring
+
+- Register headings with a Markdown processor rather than the `on_page_content` hook and the table of contents ([17665e2](https://github.com/mkdocstrings/autorefs/commit/17665e2b2bd265e1029e36597fce11b3f78f2ae0) by Timothée Mazzucotelli).
+
 ## [1.4.3](https://github.com/mkdocstrings/autorefs/releases/tag/1.4.3) - 2025-08-26
 
 <small>[Compare with 1.4.2](https://github.com/mkdocstrings/autorefs/compare/1.4.2...1.4.3)</small>
