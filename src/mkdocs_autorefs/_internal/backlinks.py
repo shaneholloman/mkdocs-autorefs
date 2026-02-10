@@ -22,7 +22,7 @@ try:
     _log = get_plugin_logger(__name__)
 except ImportError:
     # TODO: remove once support for MkDocs <1.5 is dropped
-    _log = logging.getLogger(f"mkdocs.plugins.{__name__}")  # type: ignore[assignment]
+    _log = logging.getLogger(f"mkdocs.plugins.{__name__}")
 
 
 @dataclass(frozen=True, order=True)

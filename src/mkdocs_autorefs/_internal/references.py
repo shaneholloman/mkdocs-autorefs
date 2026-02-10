@@ -40,7 +40,7 @@ try:
     _log = get_plugin_logger(__name__)
 except ImportError:
     # TODO: remove once support for MkDocs <1.5 is dropped
-    _log = logging.getLogger(f"mkdocs.plugins.{__name__}")  # type: ignore[assignment]
+    _log = logging.getLogger(f"mkdocs.plugins.{__name__}")
 
 
 AUTOREF_RE = re.compile(r"<autoref (?P<attrs>.*?)>(?P<title>.*?)</autoref>", flags=re.DOTALL)
@@ -115,7 +115,7 @@ class AutorefsInlineProcessor(ReferenceInlineProcessor):
 
     # Code based on
     # https://github.com/Python-Markdown/markdown/blob/8e7528fa5c98bf4652deb13206d6e6241d61630b/markdown/inlinepatterns.py#L780
-    def handleMatch(self, m: Match[str], data: str) -> tuple[Element | None, int | None, int | None]:  # type: ignore[override]  # noqa: N802
+    def handleMatch(self, m: Match[str], data: str) -> tuple[Element | None, int | None, int | None]:  # noqa: N802
         """Handle an element that matched.
 
         Arguments:
@@ -141,7 +141,7 @@ class AutorefsInlineProcessor(ReferenceInlineProcessor):
         return self._make_tag(identifier, text, slug=slug), m.start(0), end
 
     def _unstash(self, identifier: str) -> str:
-        stashed_nodes: dict[str, Element | str] = self.md.treeprocessors["inline"].stashed_nodes  # type: ignore[attr-defined]
+        stashed_nodes: dict[str, Element | str] = self.md.treeprocessors["inline"].stashed_nodes
 
         def _repl(match: Match) -> str:
             el = stashed_nodes.get(match[1])
@@ -179,7 +179,7 @@ class AutorefsInlineProcessor(ReferenceInlineProcessor):
 
             # Catch single stash entries, like the result of [`Foo`][].
             if match := INLINE_PLACEHOLDER_RE.fullmatch(identifier):
-                stashed_nodes: dict[str, Element | str] = self.md.treeprocessors["inline"].stashed_nodes  # type: ignore[attr-defined]
+                stashed_nodes: dict[str, Element | str] = self.md.treeprocessors["inline"].stashed_nodes
                 el = stashed_nodes.get(match[1])
                 if isinstance(el, Element) and el.tag == "code":
                     # The title was wrapped in backticks, we only keep the content,
@@ -626,7 +626,7 @@ def _find_url(
     for identifier in identifiers:
         try:
             return url_mapper(identifier)
-        except KeyError:
+        except KeyError:  # noqa: PERF203
             pass
     raise KeyError(f"None of the identifiers {identifiers} were found")
 

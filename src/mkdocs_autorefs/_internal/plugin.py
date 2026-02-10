@@ -40,7 +40,7 @@ try:
     _log = get_plugin_logger(__name__)
 except ImportError:
     # TODO: Remove once support for MkDocs <1.5 is dropped.
-    _log = logging.getLogger(f"mkdocs.plugins.{__name__}")  # type: ignore[assignment]
+    _log = logging.getLogger(f"mkdocs.plugins.{__name__}")
 
 
 class AutorefsConfig(Config):
@@ -345,7 +345,7 @@ class AutorefsPlugin(BasePlugin[AutorefsConfig]):
             if isinstance(page, Page):
                 if (parent_url := page.url) not in self._breadcrumbs_map:
                     self._breadcrumbs_map[parent_url] = BacklinkCrumb(
-                        title=page.title,
+                        title=page.title,  # ty:ignore[invalid-argument-type]
                         url=parent_url,
                         parent=parent_breadcrumb,
                     )
